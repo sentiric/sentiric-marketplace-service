@@ -1,0 +1,20 @@
+
+services:
+  marketplace-service:
+    image: ${DOCKER_REGISTRY:-ghcr.io/sentiric}/sentiric-marketplace-service:${TAG:-latest}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sentiric_marketplace_service
+    env_file:
+      - ./.env
+    ports:
+      - "4000:4000"
+    networks:
+      - sentiric-net
+    restart: unless-stopped
+
+networks:
+  sentiric-net:
+    name: ${NETWORK_NAME:-sentiric-net}
+    driver: bridge
