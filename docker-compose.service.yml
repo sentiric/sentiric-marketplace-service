@@ -1,20 +1,23 @@
-
-services:
-  marketplace-service:
-    image: ${DOCKER_REGISTRY:-ghcr.io/sentiric}/sentiric-marketplace-service:${TAG:-latest}
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: sentiric_marketplace_service
-    env_file:
-      - ./.env
-    ports:
-      - "4000:4000"
-    networks:
-      - sentiric-net
-    restart: unless-stopped
-
 networks:
   sentiric-net:
     name: ${NETWORK_NAME:-sentiric-net}
     driver: bridge
+
+services:  
+  cdr-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SERVICE_NAME: sentiric-marketplace-service
+    env_file:
+      - ./.env
+    volumes:
+      - ../sentiric-infrastructure/tls/certs:/etc/sentiric/tls:ro
+    ports:
+      - "${MARKETPLACE_SERVICE_PORT}:${MARKETPLACE_SERVICE_PORT}"
+    networks:
+      - sentiric-net
+    profiles:
+      - default
+    restart: always
