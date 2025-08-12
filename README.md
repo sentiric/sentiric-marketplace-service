@@ -1,37 +1,36 @@
-# Sentiric Marketplace Service
+# 🛒 Sentiric Marketplace Service
 
-**Description:** A platform service for discovering, distributing, and potentially monetizing agents, connectors, and other extensions within the Sentiric ecosystem.
+[![Status](https://img.shields.io/badge/status-vision-lightgrey.svg)]()
 
-**Core Responsibilities:**
-*   Listing and managing available extensions (e.g., agent templates, connector configurations).
-*   Providing an interface for users to browse, select, and deploy these extensions to their Sentiric instances.
-*   (Future) Implementing payment or licensing mechanisms for extensions.
+**Sentiric Marketplace Service**, Sentiric ekosistemi içindeki ajanların, konektörlerin ve diğer eklentilerin keşfedilmesi, dağıtılması ve potansiyel olarak paraya çevrilmesi için bir platform hizmetidir.
 
-**Technologies:**
-*   Node.js (for backend API)
-*   JavaScript/TypeScript (for frontend UI, e.g., React, Vue)
-*   Database connection (e.g., PostgreSQL).
+**Bu servis, projenin uzun vadeli vizyonunun bir parçasıdır ve şu anda aktif geliştirme aşamasında değildir.**
 
-**API Interactions (As an API Provider & Client):**
-*   **As a Provider:** Exposes APIs for `sentiric-dashboard-ui` or external developers to manage and browse extensions.
-*   **As a Client:** Interacts with `sentiric-agent-service` (to deploy new agents) and `sentiric-connectors-service` (to configure new connectors).
+## 🎯 Temel Sorumluluklar (Vizyon)
 
-**Local Development:**
-1.  Clone this repository: `git clone https://github.com/sentiric/sentiric-marketplace-service.git`
-2.  Navigate into the directory: `cd sentiric-marketplace-service`
-3.  Install backend dependencies: `npm install` (for Node.js backend).
-4.  Install frontend dependencies (if separate): `cd frontend && npm install`.
-5.  Create a `.env` file from `.env.example` to configure database and other service URLs.
-6.  Start backend and frontend: `npm start` (backend) and `npm run dev` (frontend).
+*   **Eklenti Listeleme:** Geliştiricilerin ve Sentiric'in oluşturduğu eklentileri (örn: "Sağlık Sektörü için Randevu Agent'ı", "Salesforce Konektörü") listeler.
+*   **Tek Tıkla Dağıtım:** Yöneticilerin, `dashboard-ui` üzerinden bir eklentiyi seçip kendi Sentiric kurulumlarına anında dağıtmasını sağlar.
+*   **Sürüm Yönetimi:** Eklentilerin sürümlerini takip eder ve güncelleme bildirimleri sunar.
+*   **Monetizasyon (Gelecek):** Üçüncü parti geliştiricilerin kendi eklentilerini satabileceği bir pazar yeri altyapısı sunar.
 
-**Configuration:**
-Refer to `config/` directory and `.env.example` for service-specific configurations, including database connection details and integration settings.
+## 🛠️ Teknoloji Yığını (Planlanan)
 
-**Deployment:**
-Designed for containerized deployment (e.g., Docker, Kubernetes), potentially with separate frontend and backend deployments. Refer to `sentiric-infrastructure`.
+*   **Dil:** Node.js veya Go
+*   **Veritabanı:** PostgreSQL
 
-**Contributing:**
-We welcome contributions! Please refer to the [Sentiric Governance](https://github.com/sentiric/sentiric-governance) repository for coding standards and contribution guidelines.
+## 🔌 API Etkileşimleri (Planlanan)
 
-**License:**
-This project is licensed under the [License](LICENSE).
+*   **Gelen (Sunucu):**
+    *   `sentiric-dashboard-ui` (REST/JSON): Eklentileri listelemek ve kurmak için.
+*   **Giden (İstemci):**
+    *   `sentiric-agent-service`: Yeni bir agent şablonu dağıtmak için.
+    *   `sentiric-connectors-service`: Yeni bir konektör yapılandırması dağıtmak için.
+
+## 🤝 Katkıda Bulunma
+
+Bu servis henüz geliştirme aşamasında olmasa da, fikirlerinizi ve önerilerinizi `sentiric-governance` reposunda bir `Issue` açarak paylaşabilirsiniz.
+
+---
+## 🏛️ Anayasal Konum
+
+Bu servis, [Sentiric Anayasası'nın (v11.0)](https://github.com/sentiric/sentiric-governance/blob/main/docs/blueprint/Architecture-Overview.md) **Zeka & Orkestrasyon Katmanı**'nda yer alan merkezi bir bileşendir.
