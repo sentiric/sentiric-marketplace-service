@@ -1,0 +1,26 @@
+{
+  "name": "sentiric-marketplace-service",
+  "version": "0.1.0",
+  "description": "Platform for discovering and deploying Sentiric agents and connectors (recipes).",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [
+    "fastify",
+    "microservice",
+    "sentiric"
+  ],
+  "author": "Sentiric Team",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "fastify": "^4.27.0",
+    "pino": "^9.2.0",
+    "pino-pretty": "^11.1.0"
+
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
